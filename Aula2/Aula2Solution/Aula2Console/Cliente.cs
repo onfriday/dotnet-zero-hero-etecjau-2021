@@ -2,8 +2,20 @@
 
 namespace Aula2Console
 {
-    class Cliente
+    class Pessoa
     {
+        public decimal Credito { get; protected set; }
+
+
+        public void AjustarCredito(decimal valor)
+        {
+            Credito += valor;
+        }
+    }
+
+    class Cliente : Pessoa
+    {
+        public string Apelido { get; set; } = "Apelido";
         //public string Nome
         //{
         //    get { return _Nome; }
@@ -18,12 +30,27 @@ namespace Aula2Console
         private Guid _Id;
         public Guid Id { get => _Id; set => _Id = value; }
 
-        private decimal _Credito;
-        public decimal Credito { get => _Credito; set => _Credito = value; }
 
-        public void AjustarCredito(decimal valor)
+        // Construtor
+        public Cliente(decimal creditoInicial = 0)
         {
-            _Credito += valor;
+            Credito = creditoInicial;
         }
+
+        public Cliente(string nome, string sobrenome) : this()
+        {
+            _Nome = nome;
+            _Sobrenome = sobrenome;
+        }
+
+        public Cliente(
+            string nome,
+            string sobrenome,
+            decimal creditoInicial) : this(creditoInicial)
+        {
+            _Nome = nome;
+            _Sobrenome = sobrenome;
+        }
+
     }
 }
