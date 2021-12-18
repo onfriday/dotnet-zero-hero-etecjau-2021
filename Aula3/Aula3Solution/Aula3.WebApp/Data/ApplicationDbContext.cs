@@ -12,5 +12,6 @@ namespace Aula3.WebApp.Data
         }
 
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
     }
 }
