@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Aula3.WebApp.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aula3.WebApp.Data
@@ -9,5 +10,7 @@ namespace Aula3.WebApp.Data
             : base(options)
         {
         }
+
+        public DbSet<Cliente> Clientes { get; set; }
     }
 }
